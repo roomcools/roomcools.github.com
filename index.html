@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>Deimon`s Page</title>
+<style>
+body {
+	width: 100%;
+	min-height: 400px;
+	margin: 0px 0px 0px 0px;
+}
+#main {
+	width: 800px;
+	min-height: 400px;
+	background: #000000;
+	border: 1px #000000 solid;
+	margin: 7% auto 0px auto;
+	border-radius: 0px 0px 300px 0px; 
+}
+#head {
+	width: 100%;
+	min-height: 30px;
+	background: #000000;
+	border: 1px #000000 solid;
+	margin: auto;
+	color: #ffffff;
+	font-size: 14pt;
+}
+#i {
+	color: #000000;
+	font-size: 24pt;
+	font-weight: bold;
+}
+#o {
+	color: #333333;
+	font-size: 14pt;
+	font-style: italic;
+}
+font {
+	color: #;
+}
+</style>
+<script>
+	/***********************************************
+	* Function    : getColor
+	* Author      : www.JavaScript-FX.com
+	*
+	*************************************************/
+	function getColor(start, end, percent)
+	{
+		var r1=this.hex2dec(start.slice(0,2));
+	    var g1=this.hex2dec(start.slice(2,4));
+	    var b1=this.hex2dec(start.slice(4,6));
+
+	    var r2=this.hex2dec(end.slice(0,2));
+	    var g2=this.hex2dec(end.slice(2,4));
+	    var b2=this.hex2dec(end.slice(4,6));
+
+	    var pc = percent/100;
+
+	    r= Math.floor(r1+(pc*(r2-r1)) + .5);
+	    g= Math.floor(g1+(pc*(g2-g1)) + .5);
+	    b= Math.floor(b1+(pc*(b2-b1)) + .5);
+
+	    return("#" + this.dec2hex(r) + this.dec2hex(g) + this.dec2hex(b));
+	}
+	var dec2hex = function(dec){return(this.hexDigit[dec>>4]+this.hexDigit[dec&15]);}
+	var hexDigit=new Array("0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F");
+	var hex2dec = function(hex){return(parseInt(hex,16))};
+	function animateColor(element, from, to, delta, dur) {
+		var duration = dur || 1000;
+		var start = new Date().getTime();
+
+		setTimeout(function() {
+		    var now = (new Date().getTime()) - start;
+		    var progress = now / duration;
+			
+		    element.style.backgroundColor = getColor(from, to, 100 * delta(progress));
+
+		    if (progress < 1)
+		        setTimeout(arguments.callee, 10);
+		}, 10);
+	}
+		function recolor() {
+		animateColor(document.getElementById('main'), '000000', 'DDDDDD', function(p) {
+		function delta(progress) {
+		for(var a = 0, b = 1, result; 1; a += b, b /= 2) {
+		if (progress >= (7 - 4 * a) / 11)
+		return -Math.pow((11 - 6 * a - 11 * progress) / 4, 2) + Math.pow(b, 2);
+		}
+		}
+		return 1 - delta(1 - p); })
+		}
+</script>
+</head>
+<body onclick="recolor()">
+<div id="main">
+<div id="head">
+Приветствую, человеки! <big>(кликни!)</big>
+</div>
+<div id="i">
+#Deimon - КОЛОНИСТЫ
+</div>
+<div id="o">
+1. Ничего не делаю.<br>
+2. В данжи вожу только знакомых.<br>
+3. Негативен к клану <b><i><font color=#2F4F4F>Темные Паладины</font></i></b>.<br>
+4. Ничего не покупаю. <big><font color=#AA0000>Почту не загаживать!</font></big><br>
+</div>
+<div id="i">
+#Deimon - НЕОБЩЁБ
+</div>
+<div id="o">
+1. Панки имеют больший приоритет, нежели другие.<br>
+2. Иногда ставлю вопрос о продаже товара за ДАРОМ. Продажа проводится первому выполнившему поставленные условия.<br>
+</div>
+<div id="i">
+#Deimon - ИСТЁБ
+</div>
+<div id="o">
+1. C Em Am F.<br>
+2. H D# H G#.<br>
+3. G D H C.<br>
+4. G# A C# D# E.<br>
+</div>
+</div>
+</body>
+</html>
