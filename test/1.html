@@ -1,34 +1,11 @@
 <html>
 <head>
-	<!-- подгружаем функцию getUrl (делает XMLHTTPRequest) -->
-	<script type="text/javascript" src="xmlhttp.js"></script>
-	<script type="text/javascript">
-		function getTime(){
-			// сделать запрос на адрес с того же домена, что и iframe, 
-			// указать каллбэк gotResult
-			getUrl("http://www.tmp.x/time.php", gotResult);
-		}
-		getTime();
-
-		// каллбэк для обработки результата запроса
-		function gotResut(status, headers, result) {
-  			// для общения с родительским документом нужно поменять domain на tmp.x
-			var oldDomain = document.domain
-			document.domain = "tmp.x"
-  			// и вызвать родителя, document.domain поставлен одинаковый там и тут
-			window.parent.gotTime(result)
- 
-			// вернуть домен обратно на www.tmp.x, это необходимо IE,
-			// чтобы сделать новый запрос на www.tmp.x
-			try { 
-				// для IE, в остальных браузерах ошибка...
-				document.domain = oldDomain; 
-			} catch(e) {  /* ... но там это не нужно */ }
-
-			// запускаем новый запрос..
-  			getTime()
-		}
-	</script>
+<title>s</title>
 </head>
-<body></body>
+<body>
+	
+	hello!
+	
+	
+</body>
 </html>
