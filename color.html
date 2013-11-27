@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Цветная музыка</title>
+<style>
+body {
+	background: #000000;
+	margin: 0;
+}
+#window {
+	background: #444444;
+	margin: 2.7% 0 0 5%;
+	width: 90%;
+	height: 90%;
+	overflow: hidden;
+	float: left;
+	border: 0px #000000 solid;
+	border-radius: 4px 4px 4px 4px;
+}
+</style>
+<script>	
+var pos=0;
+var notes=new Array();
+notes["C"]="#AA0000";
+notes["C#"]="#FF4400";
+notes["D"]="#FF8800";
+notes["D#"]="#FFAA00";
+notes["E"]="#FFFF00";
+notes["F"]="#00FF00";
+notes["F#"]="#00FF55";
+notes["G"]="#00AAFF";
+notes["G#"]="#004400";
+notes["A"]="#0000FF";
+notes["A#"]="#110088";
+notes["H"]="#6600AA";
+notes["0"]="#000000";
+var song=new Array();
+function stepcolor()
+{
+var windowA=document.getElementsByTagName("div")["window"];
+	windowA.style.background=notes[song[pos]];
+	pos=pos;
+	setTimeout(function() {windowA.style.background=notes["0"]}, 500);
+	pos=pos+1;
+}
+document.onkeydown=function(e) {
+e=e||event;
+if(e.keyCode==49) //1
+{
+	song=new Array("E", "E", "D#", "E", "F#", "E", "D#", "E");
+}
+if(e.keyCode==50) //2
+{
+song=new Array("A", "A", "F", "F", "G", "G", "F", "F");
+}
+if(e.keyCode==51) //3
+{
+song=new Array("H", "H", "H", "G", "G", "G", "E", "E", "E", "F#", "F#", "F#", "H", "H",  "G", "G", "E", "E", "F#", "F#", "H", "H",  "G", "G", "E", "E", "F#", "F#", "H", "H",  "G", "G", "E", "E", "F#", "F#", "H", "H", "H", "G", "G", "G", "E", "E", "E", "F#", "F#", "F#", "H", "H", "H", "G", "G", "G", "E", "E", "E", "F#", "F#", "F#", "H", "H", "H", "G", "G", "G", "E", "E", "E", "F#", "F#", "F#");
+}
+if(e.keyCode==32) //space
+{
+	pos=0;
+}
+}
+</script>
+</head>
+<body onload="setInterval('stepcolor();', 700);">
+<div id="window"> </div>
+</body>
+</html>
