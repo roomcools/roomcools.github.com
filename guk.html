@@ -42,7 +42,7 @@ color:#0000ff;
 background: url("http://goo.gl/B8Hsgj");
 border: 3px solid #ffffff;
 width: 200px;
-min-height: 600px;
+height: 500px;
 margin: 5px;
 float: left;
 overflow: hidden;
@@ -76,7 +76,7 @@ border-top: 1px solid #000000;
 float: left;
 position: absolute;
 overflow: hidden;
-top: 550;
+top: 440;
 color: #FF0000;
 }
 </style>
@@ -131,7 +131,7 @@ function game_lload()
 {
 guk1=document.getElementsByTagName("div")["guk1"].style;
 guk2=document.getElementsByTagName("div")["guk2"].style;
-if((parseInt(guk1.top)<=500)&&(parseInt(guk2.top)<=500))
+if((parseInt(guk1.top)<=390)&&(parseInt(guk2.top)<=390))
 {
 
 step1=randint(0, 3);
@@ -139,7 +139,7 @@ step2=randint(0, 3);
 guk1.top=""+(parseInt(guk1.top)+step1);
 guk2.top=""+(parseInt(guk2.top)+step2);
 }
-if((parseInt(guk1.top)>=500)||(parseInt(guk2.top)>=500))
+if((parseInt(guk1.top)>=390)||(parseInt(guk2.top)>=390))
 {
 if(parseInt(guk1.top)>parseInt(guk2.top))
 win="guk1";
