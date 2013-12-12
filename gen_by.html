@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Demo</title>
+<style>
+#i1 {
+font-size: 28pt;
+//font-family: Arial;
+padding: 60px 0 0 0;
+}
+#k1 {
+background: #000000;
+color: #ffffff;
+width: 50px;
+height: 20px;
+margin: 0 90% 0 0;
+float: left;
+}
+textarea {
+width: 400px;
+height: 550px;
+}
+</style>
+<script>
+var step=30;
+function stepl() {
+var u="";
+var ds=document.getElementsByTagName("textarea")["i1"];
+for(var i=0; i<=1000; i++)
+{ 
+//var num=(Math.floor(Math.random() * (4469 - 4449)) + 4449);// Первый
+//var num=(Math.floor(Math.random() * (5147 - 5121)) + 5121);// Треугольники
+//var num=(Math.floor(Math.random() * (5785 - 5761)) + 5761);// Огам
+var num=(Math.floor(Math.random() * (1514 - 1488)) + 1488);// Иврит
+step++;
+if(step>=30) {u+="&#"+num+"[br]"; step=0;}
+else u+="&#"+num+"";
+
+}
+ds.innerHTML=u;
+
+}
+</script>
+</head>
+<body onload="hgfd();">
+<span id="k1" onclick="stepl();"></span>
+
+<textarea id="i1"></textarea>
+
+</body>
+</html>
